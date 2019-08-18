@@ -1,0 +1,9 @@
+{
+  "name": "microndas-chat-all",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://github.com/HenryLimaBR/microndas-chat-all.git",
+  "author": "HenryLimaBR <djfilipebr@gmail.com>",
+  "license": "MIT",
+  "description": "Microndas Team Web Chat"
+}
