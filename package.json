@@ -8,5 +8,11 @@
   "description": "Microndas Team Web Chat",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "sr": "nodemon src/server.js"
   }
 }
