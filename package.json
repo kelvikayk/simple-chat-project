@@ -5,5 +5,8 @@
   "repository": "https://github.com/HenryLimaBR/microndas-chat-all.git",
   "author": "HenryLimaBR <djfilipebr@gmail.com>",
   "license": "MIT",
-  "description": "Microndas Team Web Chat"
+  "description": "Microndas Team Web Chat",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
