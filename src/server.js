@@ -12,6 +12,11 @@ server.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
+io.on("connection", (socket) => {
+    socket.on("desconection", () => {
+    });
+});
+
 server.listen(port, () => {
     console.log(`WebServer Running at ${port} port!`);
 });
