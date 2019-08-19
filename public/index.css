@@ -5,5 +5,19 @@ html {height: 100%;}
 body {
     height: 100%;
     margin: 0px;
-    background-color: steelblue;
+}
+
+#content {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    background-color: lightblue;
+}
+
+#bottom {
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    background-color: royalblue;
+    bottom: 0;
 }
