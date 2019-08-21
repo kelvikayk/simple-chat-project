@@ -5,7 +5,8 @@ module.exports = {
         } else {
             return {
                 username: data.username,
-                image: `./images/users/${data.userid}.jpg`,
+                // image: `./images/users/${data.userid}.jpg`,
+                image: "./images/users/user.jpg",
                 message: data.message,
                 colors: {
                     userColor: data.colors.userColor,

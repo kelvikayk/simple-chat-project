@@ -1,9 +1,16 @@
 const textInput = document.getElementById("textInput");
 const msgBox = document.getElementById("msgBox");
 const contentElement = document.getElementById("content");
-
+//Audio Notification Element
+const notify = document.getElementById("notification");
+//Connect The Client To The WebSocket Server
 const socket = io.connect(":8080");
 
+//Runs Any Code Inside When Page Is Open
+window.onload = function() {
+}
+
+//Store The Values To Send
 var userdata = {
     username: "User",
     userid: "user",
@@ -14,6 +21,7 @@ var userdata = {
     }
 }
 
+//Get "Enter Key" Write to Var and Send Message To Server
 function keyEnter(e) {
     if (e.keyCode === 13) {
         userdata.message = textInput.value;
@@ -22,6 +30,7 @@ function keyEnter(e) {
     }
 }
 
+//Send Var To Server
 function sendMsg() {
     if (userdata.message !== "" && userdata.message !== null) {
         socket.emit("msg", userdata);
@@ -31,12 +40,14 @@ function sendMsg() {
     }
 }
 
+//Get Message From Server And Send To Print
 socket.on("msg", (data) => {
     if (data.isCommand === false) {
         printMsg(data);
     }
 });
 
+//Print The Message On Screen
 function printMsg(data) {
     const listElement = document.createElement("li");
 
@@ -64,4 +75,18 @@ function printMsg(data) {
     msgBox.appendChild(line);
 
     contentElement.scrollTop = contentElement.scrollHeight;
+
+    if (data.username !== userdata.username) {
+        Notify(1);
+    }
+}
+
+//Play Notification Audio
+function Notify(data) {
+    if (data === 1) {
+        notify.load();
+        notify.volume = 1;
+        notify.currentTime = 0;
+        notify.play();
+    }
 }
