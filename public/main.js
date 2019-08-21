@@ -1,5 +1,6 @@
 const textInput = document.getElementById("textInput");
 const msgBox = document.getElementById("msgBox");
+const contentElement = document.getElementById("content");
 
 const socket = io.connect(":8080");
 
@@ -61,4 +62,6 @@ function printMsg(data) {
     const line = document.createElement("br")
 
     msgBox.appendChild(line);
+
+    contentElement.scrollTop = contentElement.scrollHeight;
 }
