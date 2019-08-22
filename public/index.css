@@ -38,6 +38,7 @@ body {
     margin-right: 10px;
     height: 80px;
     width: 80px;
+    border-radius: 10px;
 }
 #msgBox li strong {
     font-size: 20px;

@@ -55,6 +55,7 @@ function printMsg(data) {
 
     const imgElement = document.createElement("img");
     imgElement.setAttribute("src", data.image);
+    imgElement.setAttribute("style", `border: solid 1px ${data.colors.userColor}`)
 
     const strongElement = document.createElement("strong");
     const strongText = document.createTextNode(data.username);
