@@ -18,8 +18,12 @@ io.on("connection", (socket) => {
     var data1
     socket.on("msg", (data) => {
         data1 = msg.parseMsg(data);
-        socket.emit("msg", data1);
-        socket.broadcast.emit("msg", data1);
+        if (data1.local === true) {
+            socket.emit("msg", data1);
+        } else {
+            socket.emit("msg", data1);
+            socket.broadcast.emit("msg", data1);
+        }
     });
     socket.on("desconection", () => {
     });

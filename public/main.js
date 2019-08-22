@@ -3,6 +3,9 @@ const msgBox = document.getElementById("msgBox");
 const contentElement = document.getElementById("content");
 //Audio Notification Element
 const notify = document.getElementById("notification");
+//Audio Play Element
+const backgroundAudio = document.getElementById("backgroundAudio");
+const audioSource = document.getElementById("audioSource");
 //Connect The Client To The WebSocket Server
 const socket = io.connect(":8080");
 
@@ -42,9 +45,8 @@ function sendMsg() {
 
 //Get Message From Server And Send To Print
 socket.on("msg", (data) => {
-    if (data.isCommand === false) {
-        printMsg(data);
-    }
+    backAudio(data);
+    printMsg(data);
 });
 
 //Print The Message On Screen
@@ -88,5 +90,20 @@ function Notify(data) {
         notify.volume = 1;
         notify.currentTime = 0;
         notify.play();
+    }
+}
+
+//Play Background Audio
+function backAudio(data) {
+    if (data.audio.play == true) {
+        audioSource.setAttribute("src", data.audio.src);
+        audioSource.setAttribute("type", data.audio.mtype);
+        backgroundAudio.load();
+        backgroundAudio.volume = 0.8;
+        backgroundAudio.currentTime = 0;
+        backgroundAudio.play();
+    } else {
+        audioSource.setAttribute("src", "");
+        audioSource.setAttribute("type", "");
     }
 }

@@ -5,9 +5,9 @@ module.exports = {
     parseMsg(data) {
         if (data.message !== "" && data.message !== null) {
             if (data.message.charAt(0) == "|" && data.message.charAt(data.message.length - 1) === "|") {
-                acmd.parse(data);
+                return acmd.parse(data);
             } else if (data.message.charAt(0) === "/") {
-                cmd.parse(data);
+                return cmd.parse(data);
             } else {
                 return {
                     username: data.username,
@@ -18,7 +18,12 @@ module.exports = {
                         userColor: data.colors.userColor,
                         textColor: data.colors.textColor
                     },
-                    local: false
+                    local: false,
+                    audio: {
+                        play: false,
+                        src: "",
+                        mtype: ""
+                    }
                 }
             }
         }
