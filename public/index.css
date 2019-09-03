@@ -63,7 +63,7 @@ body {
     position: fixed;
     height: 10%;
     width: 100%;
-    background-color: seagreen;
+    /* background-color: seagreen; */
     bottom: 0;
 }
 #textInput{

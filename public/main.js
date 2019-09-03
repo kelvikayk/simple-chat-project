@@ -1,6 +1,7 @@
 const textInput = document.getElementById("textInput");
 const msgBox = document.getElementById("msgBox");
 const contentElement = document.getElementById("content");
+const bottomBar = document.getElementById("bottom");
 //Audio Notification Element
 const notify = document.getElementById("notification");
 //Audio Play Element
@@ -8,10 +9,6 @@ const backgroundAudio = document.getElementById("backgroundAudio");
 const audioSource = document.getElementById("audioSource");
 //Connect The Client To The WebSocket Server
 const socket = io.connect(":8080");
-
-//Runs Any Code Inside When Page Is Open
-window.onload = function() {
-}
 
 //Store The Values To Send
 var userdata = {
@@ -22,6 +19,16 @@ var userdata = {
         userColor: "lime",
         textColor: "lime"
     }
+}
+
+//Runs Any Code Inside When Page Is Open
+window.onload = function() {
+    updateColor();
+}
+
+//Update Page Color
+function updateColor() {
+    bottomBar.style.backgroundColor = userdata.colors.userColor;
 }
 
 //Get "Enter Key" Write to Var and Send Message To Server

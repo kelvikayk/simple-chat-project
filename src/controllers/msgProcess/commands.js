@@ -1,6 +1,6 @@
 const com = {
-    usename: "System",
-    image: "./images/users/system.jpg",
+    usename: "*",
+    image: "./images/users/",
     message: "Command",
     colors: {
         userColor: "red",
@@ -15,15 +15,15 @@ const com = {
 }
 
 module.exports = {
-    cmd(data) {
+    cmd(data,usr) {
         if (data === "boateazul") {
             return {
-                username: com.usename,
-                image: com.image,
-                message: "\ud83e\udd12\ud83d\udc94\ud83d\udc02\ud83d\ude02",
+                username: `* DJ *`,
+                image: `${com.image}vinyl.jpg`,
+                message: `Requested By: ${usr}. \ud83e\udd12\ud83d\udc94\ud83d\udc02\ud83d\ude02`,
                 colors: {
-                    userColor: com.colors.userColor,
-                    textColor: com.colors.textColor
+                    userColor: "blue",
+                    textColor: "blue"
                 },
                 local: false,
                 audio: {
@@ -34,12 +34,12 @@ module.exports = {
             };
         } else if (data === "policia") {
             return {
-                username: com.usename,
-                image: com.image,
-                message: "\ud83d\udea8 \ud83d\udc6e \ud83d\ude94 \ud83d\ude93",
+                username: `* SFX *`,
+                image: `${com.image}speaker.jpg`,
+                message: `Requested By: ${usr}. \ud83d\udea8 \ud83d\udc6e \ud83d\ude94 \ud83d\ude93`,
                 colors: {
-                    userColor: com.colors.userColor,
-                    textColor: com.colors.textColor
+                    userColor: "fuchsia",
+                    textColor: "fuchsia"
                 },
                 local: false,
                 audio: {
@@ -50,8 +50,8 @@ module.exports = {
             };
         } else {
             return {
-                username: com.usename,
-                image: com.image,
+                username: `* System *`,
+                image: `${com.image}system.jpg`,
                 message: `Invalid Command: "${data}"`,
                 colors: {
                     userColor: "red",
@@ -68,7 +68,8 @@ module.exports = {
     },
     parse(data) {
         var cmd = data.message;
+        var usr = data.username;
         cmd = cmd.slice(1);
-        return this.cmd(cmd);
+        return this.cmd(cmd,usr);
     }
 };
