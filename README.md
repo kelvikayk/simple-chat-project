@@ -1,2 +1,2 @@
-# microndas-chat-all
-Microndas Web Chat
+# simple-chat-project
+Simple Chat Project
